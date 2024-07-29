@@ -12,9 +12,4 @@ describe('Trello Login Tests', ()=>{
             cy.get('h3.boards-page-section-header-name').should('contain.text', 'YOUR WORKSPACES');
         });
     });
-
-    // it('Verify that it is not possible to login with invalid credentials.', function() {
-    //     cy.login(this.userData.email, this.userData.password);
-    //     cy.get('.css-xal9c7').should('contain', 'Incorrect email address and / or password');
-    // });
 });
