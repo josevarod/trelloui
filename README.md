@@ -15,13 +15,13 @@ git clone git@github.com:josevarod/trelloui.git
 ```
 Ingresar en la carpeta `cd trelloui`
 
-3. Verificar que Node.js este instalado en su equipo
+2. Verificar que Node.js este instalado en su equipo
 ```bash
 node -v
 ```
 Si no esta intalado, debe descargar el archivo e instalarlo en su equipo
 
-5. Configuración node
+3. Configuración node
 ```bash
 npm init
 ```
@@ -32,15 +32,15 @@ npm init
 npm install cypress
 ```
 
-6. Instalar librerias
- - librería [dotenv](https://www.npmjs.com/package/dotenv "dotenv") para variables de entorno
-```bash
-npm install dotenv --save
-```
+5. Instalar librerias
+   - librería [dotenv](https://www.npmjs.com/package/dotenv "dotenv") para variables de entorno
+ ```bash
+ npm install dotenv --save
+ ```
  - librería [cypress-mochawesome-reporter](https://www.npmjs.com/package/cypress-mochawesome-reporter#cypress-mochawesome-reporter "cypress-mochawesome-reporter") para reportes
-```bash
-npm i --save-dev cypress-mochawesome-reporter
-```
+ ```bash
+ npm i --save-dev cypress-mochawesome-reporter
+ ```
 6. Crear archivo .env en la raiz del proyecto con las variables de entorno
 ```javascript
    CYPRESS_BASE_URL= https://trello.com
@@ -49,7 +49,17 @@ npm i --save-dev cypress-mochawesome-reporter
 ```
 > Nota. Debe contar con una cuenta en Trello con registro de correo y contraseña, que no sea de terceros como: Google, Microsoft, Apple, Slack
 
-7. Ejecucion de test por medio del navegador de cypress
-`npx cypress open`
- - Seleccionar E2E, navegador Google Chrome
- - Seleccionar archivo que se desea probar
+7. Ejecucion de test de Cypress
+- Por medio de consola
+```bash
+npx cypress login.cy.js
+```
+- Por medio del UI propio de Cypress:
+
+```bash
+cnpx cypress open
+```
+> 1. Seleccionar E2E Testing navegador
+> 2. Seleccionar Google Chrome
+> 3. Hacer clic en el boton Start E2E Testing in Chrome
+> 4. Seleccionar archivo que se desea probar
