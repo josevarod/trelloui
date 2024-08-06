@@ -16,4 +16,10 @@ describe('Trello Login Tests', () => {
         LoginHelper.login(testData.user_email, testData.user_invalid_password);
         LoginHelper.validateLoginErrorMessage();
     });
+
+    it('Verify that it is possible to logout successfully.', () => {
+        LoginHelper.login(username, password);
+        BoardHelper.logout();
+        BoardHelper.validateLogoutUserSuccessfully();
+    });
 });
