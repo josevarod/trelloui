@@ -52,7 +52,7 @@ npm install cypress
 7. Ejecucion de test de Cypress
 - Por medio de consola
 ```bash
-npx cypress login.cy.js
+npx cypress <test_name>.cy.js
 ```
 - Por medio del UI propio de Cypress:
 
