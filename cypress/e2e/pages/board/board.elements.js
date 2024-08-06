@@ -15,7 +15,16 @@ export class BoardElements {
             },
             get submitButton() {
                 return cy.get('[data-testid="create-board-submit-button"]');
-            }
+            },
+            get createBoardButton() {
+                return cy.get('[data-testid="AddIcon"]');
+            },
+            get headerCreateBoardButton() {
+                return cy.get('[data-testid="header-create-board-button"] > .LCeoUSr_PkZrP2 > .BmRHtH7FIX0jcL');
+            },
+            get boardTitle() {
+                return cy.get('[data-testid="create-board-title-input"]');
+            },
         }
     }
 }

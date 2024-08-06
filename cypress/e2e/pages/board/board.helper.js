@@ -4,6 +4,9 @@ export class BoardHelper {
     static clickCreateBoardButton() {
         BoardElements.elements.createBoardButton.click();
     }
+    static clickHeaderCreateBoardButton() {
+        BoardElements.elements.headerCreateBoardButton.click();
+    }
 
     static clickAddIconBoardButton() {
         BoardElements.elements.boardIconAdd.click();
@@ -17,8 +20,11 @@ export class BoardHelper {
         BoardElements.elements.boardTitle.type(board_name);
     }
 
-    static clickSubmitBoardButton() {
+    static clickSubmitBoardButton(board_name) {
         BoardElements.elements.submitButton.click();
+        cy.get('[data-testid="board-name-display"]').should('be.visible');
+        cy.url().should('include', `/${board_name.toLowerCase()}`);
+        cy.get('[data-testid="board-name-display"]').should('contain.text', board_name);
     }
 
     static validateBoardCreatedSuccessfully(board_name) {
@@ -71,8 +77,9 @@ export class BoardHelper {
 
     static createBoard(board_name) {
         this.clickCreateBoardButton();
+        this.clickHeaderCreateBoardButton();
         this.insertBoardTitle(board_name);
-        this.clickSubmitBoardButton();
+        this.clickSubmitBoardButton(board_name);
     }
 
     static deleteBoard(board_name) {

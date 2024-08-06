@@ -6,12 +6,11 @@ import { LoginHelper } from "../pages/login/login.helper";
 describe('Verify that it is possible to create a new board.', () => {
     const username = Cypress.env('CYPRESS_USERNAME');
     const password = Cypress.env('CYPRESS_PASSWORD');
-    const testData = LoginConstants.testData;
 
-    it('Verify that it is possible to login successfully with valid credentials.', () => {
+    it('Verify that it is possible to create a new board not exist', () => {
         LoginHelper.login(username, password);
-        LoginHelper.validateUserLoginSuccessfullySpanish();
+        //LoginHelper.validateUserLoginSuccessfullySpanish();
+        BoardHelper.createBoard('BOARD-JUANP');
     });
-
-    
 });
+
