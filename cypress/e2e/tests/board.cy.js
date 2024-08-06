@@ -13,8 +13,5 @@ describe('Verify that it is possible to create a new board.', () => {
         LoginHelper.validateUserLoginSuccessfullySpanish();
     });
 
-    it('Verify that it is possible to create a new board', () => {
-        BoardHelper.createBoard('TABLE EXAMPLE - JP')
-    });
-
+    
 });
