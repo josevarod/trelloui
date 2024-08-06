@@ -29,6 +29,11 @@ export class LoginHelper {
         BoardElements.elements.boardWorkSpace.should('contain.text', 'YOUR WORKSPACES');
     }
 
+    static validateUserLoginSuccessfullySpanish() {
+        cy.url().should('include', '/boards');
+        BoardElements.elements.boardWorkSpace.should('contain.text', 'TUS ESPACIOS DE TRABAJO');
+    }
+
     static login(username, password) {
         this.navigate_to_login();
         this.insertUsername(username);

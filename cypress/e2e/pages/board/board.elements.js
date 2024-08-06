@@ -7,6 +7,15 @@ export class BoardElements {
             get boardWorkSpace() {
                 return cy.get('h3.boards-page-section-header-name');
             },
+            get boardIconAdd() {
+                return cy.get('[data-testid="AddIcon"]');
+            },
+            get headerCreateBoard() {
+                return cy.get('[data-testid="header-create-board-button"] > .LCeoUSr_PkZrP2 > .BmRHtH7FIX0jcL');
+            },
+            get submitButton() {
+                return cy.get('[data-testid="create-board-submit-button"]');
+            }
         }
     }
 }

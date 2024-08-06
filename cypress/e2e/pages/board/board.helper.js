@@ -5,6 +5,14 @@ export class BoardHelper {
         BoardElements.elements.createBoardButton.click();
     }
 
+    static clickAddIconBoardButton() {
+        BoardElements.elements.boardIconAdd.click();
+    }
+
+    static clickHeadCreateBoardButton() {
+        BoardElements.elements.headerCreateBoard.click();
+    }
+
     static insertBoardTitle(board_name) {
         BoardElements.elements.boardTitle.type(board_name);
     }
