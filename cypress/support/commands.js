@@ -23,15 +23,3 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
-
-Cypress.Commands.add('login', (email, password) => {
-    cy.visit('/login');
-    cy.wait(1000);
-    cy.get('[data-testid="username"]').should('be.visible');
-    cy.get('[data-testid="username"]').should('be.visible').type(email);
-    cy.get('#login-submit').should('be.visible').click();
-    cy.wait(900);
-    cy.get('[data-testid="password"]').should('be.visible').type(password);
-    cy.wait(900);
-    cy.get('#login-submit').should('be.visible').click();
-});
