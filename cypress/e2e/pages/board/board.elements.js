@@ -25,6 +25,9 @@ export class BoardElements {
             get boardTitle() {
                 return cy.get('[data-testid="create-board-title-input"]');
             },
+            get logoutButton() {
+                return cy.get('[data-testid="account-menu-logout"] > .LCeoUSr_PkZrP2');
+            },
         }
     }
 }
