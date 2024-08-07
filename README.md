@@ -57,7 +57,7 @@ npx cypress <test_name>.cy.js
 - Por medio del UI propio de Cypress:
 
 ```bash
-cnpx cypress open
+npx cypress open
 ```
 > 1. Seleccionar E2E Testing navegador
 > 2. Seleccionar Google Chrome
