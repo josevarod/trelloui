@@ -4,18 +4,32 @@ export class BoardHelper {
     static clickCreateBoardButton() {
         BoardElements.elements.createBoardButton.click();
     }
-
-    static insertBoardTitle(board_name) {
-        BoardElements.elements.boardTitle.type(board_name);
+    static clickHeaderCreateBoardButton() {
+        BoardElements.elements.headerCreateBoardButton.click();
     }
 
-    static clickSubmitBoardButton() {
+    static clickAddIconBoardButton() {
+        BoardElements.elements.boardIconAdd.click();
+    }
+
+    static clickHeadCreateBoardButton() {
+        BoardElements.elements.headerCreateBoard.click();
+    }
+
+    static insertBoardTitle(boardName) {
+        BoardElements.elements.boardTitle.type(boardName);
+    }
+
+    static clickSubmitBoardButton(boardName) {
         BoardElements.elements.submitButton.click();
+        BoardElements.elements.boardName.should('be.visible');
+        cy.url().should('include', `/${boardName.toLowerCase()}`);
+        BoardElements.elements.boardName.should('contain.text', boardName);
     }
 
-    static validateBoardCreatedSuccessfully(board_name) {
-        cy.url().should('include', `/${board_name}`);
-        BoardElements.elements.boardName.should('contain.text', board_name);
+    static validateBoardCreatedSuccessfully(boardName) {
+        cy.url().should('include', `/${boardName}`);
+        BoardElements.elements.boardName.should('contain.text', boardName);
     }
 
     static clickHeaderMenuOption() {
@@ -46,6 +60,7 @@ export class BoardHelper {
 
     static clickCloseButton() {
         BoardElements.elements.closeButton.click();
+        BoardElements.elements.closeButtonConfirm.click();
     }
 
     static clickDeleteBoardButton() {
@@ -56,23 +71,24 @@ export class BoardHelper {
         BoardElements.elements.deleteButton.click();
     }
 
-    static validateDeleteBoardSuccessfully(board_name) {
+    static validateDeleteBoardSuccessfully(boardName) {
         cy.url().should('include', '/boards');
-        cy.contains(board_name).should('not.exist');
+        cy.contains(boardName).should('not.exist');
     }
 
-    static createBoard(board_name) {
+    static createBoard(boardName) {
         this.clickCreateBoardButton();
-        this.insertBoardTitle(board_name);
-        this.clickSubmitBoardButton();
+        this.clickHeaderCreateBoardButton();
+        this.insertBoardTitle(boardName);
+        this.clickSubmitBoardButton(boardName);
     }
 
-    static deleteBoard(board_name) {
-        cy.contains(board_name).click();
+    static deleteBoard(boardName) {
+        cy.contains(boardName).click();
         this.clickBoardMenu();
-        this.clickCloseBoardButton();
         this.clickCloseButton();
         this.clickDeleteBoardButton();
         this.clickDeleteButton();
+        cy.contains(boardName).should('not.exist');
     }
 }
